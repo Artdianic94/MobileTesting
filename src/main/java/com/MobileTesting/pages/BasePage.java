@@ -8,7 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class BasePage {
     AppiumDriver<MobileElement> driverManager = DriverManager.getDriver();
-    public BasePage(){
+
+    public BasePage() {
         PageFactory.initElements(new AppiumFieldDecorator(driverManager), this);
     }
 }

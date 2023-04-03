@@ -1,11 +1,7 @@
 package com.MobileTesting.pages;
 
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.AppiumFluentWait;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.functions.ExpectedCondition;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -25,10 +21,11 @@ public class EPAMPage extends BasePage {
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Check your credentials.\"]")
     private MobileElement messageError;
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Verified Successfully\"]")
-    private MobileElement verifiedSucc;
+    private MobileElement verifiedSuccessful;
     WebDriverWait wait = new WebDriverWait(driverManager, 60);
 
     public EPAMPage clickSkip() {
+        wait.until(ExpectedConditions.visibilityOf(skipInform));
         skipInform.click();
         return this;
     }
@@ -56,10 +53,9 @@ public class EPAMPage extends BasePage {
         return this;
     }
 
-    public EPAMPage clickSignIn() {
-        wait.until(ExpectedConditions.visibilityOf(verifiedSucc));
+    public void clickSignIn() {
+        wait.until(ExpectedConditions.visibilityOf(verifiedSuccessful));
         signInBtn.click();
-        return this;
     }
 
     public String getErrorMessage() {
