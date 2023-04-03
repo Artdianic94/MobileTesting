@@ -1,0 +1,4 @@
+# Project exclude paths
+/target/
+/src/main/resources/EPAM Connect_2.15.1_apkcombo.com.apk
+/.idea/
